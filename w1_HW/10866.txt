@@ -1,0 +1,61 @@
+10866번: 덱
+
+1.
+정수를 저장하는 덱을 구현하여 명령을 처리한다.
+명령의 종류 : push_front, push_back, pop_front, pop_back
+             size, empty, front, back
+입력으로 첫째 줄에 명령의 수 N, 둘째 줄부터 명령들이 주어짐.
+출력해야 하는 명령에 맞는 출력.
+
+2.
+링크드리스트로 deque을 생성.
+명령수 N 만큼 반복.
+명령을 읽고 동작을 수행한다.
+push_front : deque.offerFirst()
+push_back : deque.offerLast()
+pop_front : 빈 덱 > -1, deque.pollFirst()
+pop_back : 빈 덱 > -1, deque.pollLast()
+size : deque.size()
+empty : 빈 덱 > 1, else > 0
+front : 빈 덱 > -1, deque.getFirst()
+back : 빈 덱 > -1, deque.getLast()
+
+3.
+int N = 명령수
+링크드 리스트로 덱 구현    
+    
+for(N){
+    String oper = 명령
+
+    switch(oper){
+        case "push_front":
+            deque.offerFirst();
+            break;
+        case "push_back":
+            deque.offerLast();
+            break;
+        case "pop_front":
+            if(deque.isEmpty()) print(-1);
+            else print(deque.pollFirst());
+            break;
+        case "pop_back":
+            if(deque.isEmpty()) print(-1);
+            else print(deque.pollLast());
+            break;
+        case "size":
+            print(deque.size());
+            break;
+        case "empty":
+            if(deque.isEmpty()) print(1);
+            else print(0);
+            break;
+        case "front":
+            if(deque.isEmpty()) print(-1);
+            else print(deque.getFirst());
+            break;
+        case "back":
+            if(deque.isEmpty()) print(-1);
+            else print(deque.getLast());
+            break;
+    }
+}
