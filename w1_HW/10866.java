@@ -6,10 +6,9 @@ public class Main {
     	Scanner sc = new Scanner(System.in);
 
         int N = sc.nextInt();
-        int[] out = new int[N]; 
-        int out_num = 0;
         
         LinkedList<Integer> deque = new LinkedList<>();
+        StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<N; i++){
             String oper = sc.next();
@@ -23,59 +22,46 @@ public class Main {
                     break;
                 case "pop_front":
                 	if(deque.isEmpty()) {
-                    	out[out_num] = -1;
-                    	out_num++;
+                    	sb.append(-1).append('\n');
                     }else {
-                    	out[out_num] = deque.pollFirst();
-                    	out_num++;
+                    	sb.append(deque.pollFirst()).append('\n');
                     }
                     break;
                 case "pop_back":
                     if(deque.isEmpty()) {
-                    	out[out_num] = -1;
-                    	out_num++;
+                    	sb.append(-1).append('\n');
                     }else {
-                    	out[out_num] = deque.pollLast();
-                    	out_num++;
+                    	sb.append(deque.pollLast()).append('\n');
                     }
                     break;
                 case "size":
-                	out[out_num] = deque.size();
-                	out_num++;
+                    sb.append(deque.size()).append('\n');
                     break;
                 case "empty":
                     if(deque.isEmpty()) {
-                    	out[out_num] = 1;
-                    	out_num++;
+                    	sb.append(1).append('\n');
                     }else {
-                    	out[out_num] = 0;
-                    	out_num++;
+                    	sb.append(0).append('\n');
                     }
                     break;
                 case "front":
                     if(deque.isEmpty()) {
-                    	out[out_num] = -1;
-                    	out_num++;
+                    	sb.append(-1).append('\n');
                     }else {
-                    	out[out_num] = deque.getFirst();
-                    	out_num++;
+                    	sb.append(deque.peekFirst()).append('\n');
                     }
                     break;
                 case "back":
                     if(deque.isEmpty()) {
-                    	out[out_num] = -1;
-                    	out_num++;
+                    	sb.append(-1).append('\n');
                     }else {
-                    	out[out_num] = deque.getLast();
-                    	out_num++;
+                    	sb.append(deque.peekLast()).append('\n');
                     }
                     break;
             }
         }
 
-        for(int i=0; i<out_num; i++) {
-        	System.out.println(out[i]);
-        }
+        System.out.println(sb);
         
         sc.close();
     }
