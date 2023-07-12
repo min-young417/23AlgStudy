@@ -1,0 +1,23 @@
+12865번: 평범한 배낭
+
+1.
+N개의 물건. 각 물건은 무게 W와 가치 V.
+최대 K만큼의 무게만을 넣을 수 있는 배낭만 들고 다닐 수 있다.
+최대한 즐거운 여행을 하기 위해 배낭에 넣을 수 있는 물건들의 가치의 최댓값.
+
+2.
+
+f(i, k) = 0                                 (i=0, k=0)
+          f(i-1, k)                         (Wi > k)
+          max(f(i-1, k-Wi) + Vi, f(i-1,k))  (0<i and Wi <= K)
+
+3.
+int[][] dp;
+knapsack(i, k):
+    i < 0 이면 return 0
+
+    w[i] > k 이면 dp[i][k] = knapsack(i - 1, k)
+    나머지 dp[i][k] = Math.max(knapsack(i-1, k), knapsack(i-1, k-W[i])+V[i])
+    return dp[i][k]
+
+print(knapsack(N-1, K))
