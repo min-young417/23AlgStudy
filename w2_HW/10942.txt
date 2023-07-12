@@ -1,0 +1,41 @@
+10942번: 팰린드롬?
+
+1.
+자연수 N개, 질문 M번
+S번째 수부터 E번째 까지 수가 팰린드롬을 이루는지 질문(1 ≤ S ≤ E ≤ N)
+팰린드롬인 경우에는 1, 아닌 경우에는 0을 출력
+
+2.
+자연수 N을 배열p에 저장.
+p[s] == p[e]인지 확인해서 팰리드롬인지 아닌지 확인해 출력
+
+3.
+int[] p;
+bool isP = true;
+LOOP(E-S-1)
+    if(p[S] == p[E])
+        continue;
+    else
+        isP = false;
+    
+-> 문제 : 시간초과 
+   해결 : dynamic programming
+
+2.
+int[][] p 에 i~j까지의 문자가 팰린드롬인지 판별해 저장.
+
+3.
+LOOP(N):
+    nums[i] = 입력;
+
+LOOP(i++(1~N)):
+    dp[i][i] = true;
+    nums[i] == nums[i-1] 이면, dp[i-1][i] = true;
+
+LOOP(i++(2~N-1)):
+    LOOP(j++(1~N-i)):
+        nums[j] == nums[j+i] 이고 dp[j+1][j+i-1] 이면,
+        dp[j][j+i] = true;
+ 
+-> 문제 : 시간초과
+   해결 : 여러번 for문 사용하는 것을 최소화, scanner -> bufferReader로 변경
