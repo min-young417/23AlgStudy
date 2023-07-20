@@ -1,0 +1,31 @@
+10815번: 숫자 카드
+
+1.
+숫자 카드 N개. 정수 M개.
+이 수가 적혀있는 숫자 카드가 있는지 아닌지를 구하라.
+
+2.
+숫자를 입력받은 배열 정렬.
+숫자 카드 N개를 반복한다.
+현재 숫자가 중앙값보다 작으면 중앙보다 작은 수에서 다시 반복.
+현재숫자가 중앙값보다 크면 중앙보다 큰 수에서 반복.
+현재숫자가 존재하면 print(1)
+반복했는데 x가 없으면 print(0) 
+M개의 숫자에 대해서 반복한다.
+
+3.
+int[] arr = new int[N];
+
+sort(arr);
+
+LOOP(size-- > 0):
+    s = 0
+    e = N-1
+
+    LOOP(s <= e):
+        mid = (s+e)/2
+
+        present < arr[mid] 이면, e = mid-1
+        present > arr[mid] 이면, s = mid+1
+        present == arr[mid] 이면, break, print(1)
+    LOOP를 다돌 았는데 존재하지 않으면, print(0)

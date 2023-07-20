@@ -1,0 +1,28 @@
+1920번: 수 찾기
+
+1.
+N개의 정수. 이 안에 X라는 정수가 존재하는지 알아내는 프로그램.
+
+2.
+숫자를 입력받은 배열 정렬.
+x가 중앙값보다 작으면 중앙보다 작은 수에서 다시 반복.
+x가 중앙값보다 크면 중앙보다 큰 수에서 반복.
+x가 존재하면 print(1)
+반복했는데 x가 없으면 print(0) 
+
+3.
+int[] arr = new int[N];
+
+sort(arr);
+
+LOOP(M):
+    s = 0
+    e = N-1
+
+    LOOP(s <= e):
+        mid = (s+e)/2
+
+        key < arr[mid] 이면, e = mid-1
+        key > arr[mid] 이면, s = mid+1
+        key == arr[mid] 이면, break, print(1)
+    LOOP를 다돌 았는데 존재하지 않으면, print(0)
