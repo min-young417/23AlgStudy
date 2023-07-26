@@ -1,0 +1,41 @@
+1991번: 트리 순회
+
+1.
+이진 트리를 입력받아 전위 순회, 중위 순회, 후위 순회한 결과를 출력하는 프로그램
+
+2.
+Node(data, left, right)
+입력 받은 값을 data에 넣고, '.'을 입력 받으면 null로 처리
+전위 순회 : print -> left -> right
+중위 순회 : left -> print -> right
+후위 순회 : left -> right -> print
+
+3.
+Node(data) // Node(data, Node left, Node right)
+
+Node[] arr = {'A', 'B', 'C', ...}
+
+LOOP:
+    arr[input(1)-'A'].left = input(2)이,
+    '.'이면 null
+    아니면 arr[input(2) - 'A']
+
+    arr[input(1)-'A'].right = input(2)이,
+    '.'이면 null
+    아니면 arr[input(4) - 'A']
+
+preorder(node):
+    print(node.data)
+    preorder(node.left)
+    preorder(node.right)
+
+inorder(node):
+    inorder(node.left)
+    print(node.data)
+    inorder(node.right)
+
+postorder(node):
+    postorder(node.left)
+    postorder(node.right)
+    print(node.data)
+
