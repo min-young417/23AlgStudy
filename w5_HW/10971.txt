@@ -1,0 +1,38 @@
+10971번: 외반원 순회2
+
+1.
+한 외판원이 어느 한 도시에서 출발해 N개의 도시를 모두 거쳐 다시 원래의 도시로 돌아오는 순회 여행 경로.
+가장 적은 비용을 들이는 여행 계획. 최소비용을 출력.
+각 도시간에 이동하는데 드는 비용은 행렬 W[i][j]형태로 주어진다. 
+
+2.
+시작도시를 기점으로 방문하지 않은 노드들을 지나감.
+DFS를 재귀로 하면서 비용을 더함.
+도시를 다 돌았을 때 비용을 저장.
+다른 경로도 돌고 이전 최소비용과 비교하여 더 작은 것을 저장해 최소비용 출력.
+
+3.
+int[][] city
+boolean[] visited
+answer = Max_Value
+
+city[i][j] = input
+
+LOOP(i : n):
+    visited[i] = ture //방문했다고 표시
+    DFS(1, 1, 0, 0) 
+
+print(answer)
+
+DFS(start, now, sum, count):
+    count == n-1이면,
+        now-start 길이 있으면,
+            sum에 비용추가
+            answer = Math.min(answer,sum)
+        종료
+
+    LOOP(i : 1~n):
+        i를 방문하지 않았고 && now-i에 길이 있으면,
+            i 방문 체크
+            DFS(start,i,sum에 비용추가,count+1)
+            i 방문 안함

@@ -1,0 +1,25 @@
+9663번: N-Queen
+
+1.
+크기가 N × N인 체스판 위에 퀸 N개를 서로 공격할 수 없게 놓는 문제.
+N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램.
+
+2.
+행을 증가시키면서 유망하면(놓을 자리가 있으면) 재귀호출.
+모두 배치되어있으면 count++
+
+3.
+nQueen(depth):
+    depth == n이면, count++ 하고 끝
+    arr[depth] = i
+    LOOP(i : n):
+        유망하면, nQueen(depth+1) 
+
+Possibility(col):
+    LOOP(i : col):
+        arr[col] == arr[i]이면, 유망하지 않다
+        Math.abs(col-i) == Math.abs(arr[col]-arr[i])이면, 유망하지 않다
+    다 통과하면 유망하다
+    
+nQueen(0)
+print(count)

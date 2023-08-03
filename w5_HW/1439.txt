@@ -1,0 +1,23 @@
+1439번: 뒤집기
+
+1.
+0과 1로만 이루어진 문자열 S.
+문자열 S에 있는 모든 숫자를 전부 같게 만들려고 한다.
+연속된 숫자는 한번에 변경 가능하다.
+최소 몇번 뒤집어야 할까?
+
+2.
+첫번째 숫자를 기준으로 다른 숫자가 연속되는 묶음의 개수를 출력.
+
+3.
+count = 0
+prev = S.charAt(0) //첫번째 숫자
+
+LOOP(i : 1~S.length()):
+    prev == S.charAt(i)면, continue
+    count++
+    LOOP(j : i~S.length()):
+        prev == S.charAt(j)면, break
+        i++
+
+print(count)
