@@ -1,0 +1,47 @@
+7576번: 토마토
+
+1.
+익은 토마토들의 왼쪽, 오른쪽, 앞, 뒤에 있는 
+익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다.
+며칠이 지나면 다 익게 되는지, 그 최소 일수.
+정수 1은 익은 토마토, 정수 0은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸.
+
+2.
+토마토 확산 경로
+dx = {-1, -1, 0, 0}
+dy = {0, 0, -1, -1}
+ex / 1일 후 익은 토마토의 좌표 = 1
+     2일 후 익은 토마토의 좌표 = 2
+box의 토마토가 다익었을때,
+좌표에 저장된 값을 일수로 출력.
+
+3.
+class tomato(int x, int y)
+
+box = new int[N][M]
+tq = new LinkedList<tomato>()
+
+box에 값 넣기
+
+print(BFS())
+
+BFS:
+    dx = {-1, -1, 0, 0}
+	dy = {0, 0, -1, -1}
+
+    LOOP:
+        tomato t, x = t.x, y = t.y
+        LOOP(i : 4):
+            nx = x + dx[i]
+            ny = y + dx[i]
+
+            0 <= nx < N, 0 <= ny < N, box[nx][ny]가 0이면,
+                tq.add(new tomato(nx, ny))
+                box[nx][ny] = box[x][y]+1 
+
+    LOOP(i, j):
+        box[i][j] 가 0이면 return -1
+        result = Math.max(result, box[i][j])
+    
+    result가 1이면 return 0
+    아니면 return-1
