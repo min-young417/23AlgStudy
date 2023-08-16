@@ -1,0 +1,42 @@
+1753번: 최단경로
+
+1.
+방향그래프가 주어지면 주어진 시작점에서 다른 모든 정점으로의 최단 경로를 구하는 프로그램
+정점의 개수 V. 간선의 개수 E. 시작 정점의 번호 K.
+u에서 v로 가는 가중치 w인 간선.
+서로 다른 두 정점 사이에 여러 개의 간선이 존재할 수도 있음에 유의
+시작점 자신은 0으로 출력하고, 경로가 존재하지 않는 경우에는 INF를 출력
+
+2.
+다익스트라 알고리즘
+시작 노드를 기준으로 각 노드의 최소 비용을 저장
+방문하지 않은 노드 중 가장 비용이 적은 노드 선택
+해당 노드를 거쳐서 특정한 노드로 가는 경우를 고려하여 최소 비용 갱신
+
+3.
+Edge(target, cost)
+
+dist = new int[V+1]
+dist를 MAX_VALUE로 초기화
+
+list = new ArrayList[V+1]
+Edge들을 list에 추가
+
+dijkstra(K)
+
+LOOP:
+    dist[i] == MAX_VALUE 이면, print("INF")
+    아니면, print(dist[i])
+
+dijkstra(start):
+    PriorityQueue<Edge> pq
+    pd.add(Edge(start, 0))
+
+    LOOP:
+        Edge cur = pq.poll()
+
+        LOOP:
+            Edge next = (Edge) list[cur.target].get(i)
+            dist[next.target] > cur.cost + next.cost 이면, 
+                dist[next.target] = cur.cost + next.cost
+        		pq.add(Edge(next.target, dist[next.target]))

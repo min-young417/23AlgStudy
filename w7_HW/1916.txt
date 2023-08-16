@@ -1,0 +1,38 @@
+1916번: 최소비용 구하기
+
+1.
+N개의 도시. M개의 버스. 
+A번째 도시에서 B번째 도시까지 가는데 드는 최소비용을 출력.
+
+2.
+다익스트라 알고리즘 
+시작 노드를 기준으로 각 노드의 최소 비용을 저장
+방문하지 않은 노드 중 가장 비용이 적은 노드 선택
+해당 노드를 거쳐서 특정한 노드로 가는 경우를 고려하여 최소 비용 갱신
+
+3.
+Node(end, weight)
+
+a = new ArrayList<>()
+a.get(start).add(Node(end, weight))
+
+dist = new int[N + 1]
+Arrays.fill(dist, MAX)
+
+check = new boolean[N + 1]
+
+print(dijkstra(startPos, endPos))
+
+dijkstra(start, end):
+    PriorityQueue<Node> pq
+    pd.add(Edge(start, 0))
+
+    LOOP:
+        Edge cur = pq.poll()
+
+        LOOP:
+            !check[node.end] && 
+            dist[node.end] > dist[cur] + node.weight 이면,
+                dist[node.end] = dist[cur] + node.weight;
+                pq.add(new Node(node.end, dist[node.end]));
+    return dist[end];

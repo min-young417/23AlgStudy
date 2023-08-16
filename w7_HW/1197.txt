@@ -1,0 +1,35 @@
+1197번: 최소 스패닝 트리
+
+1.
+최소 스패닝 트리를 구하는 프로그램
+주어진 그래프의 모든 정점들을 연결하는 부분 그래프 중에서 그 가중치의 합이 최소인 트리
+
+2.
+크루스칼 알고리즘
+노드(start, end, result)
+비용을 기준으로 노드를 오름차순 정렬
+정렬 순으로 그래프에 포함 시키되 사이클이 발생되지 않도록 체크
+
+3.
+Node(start, end, result)
+
+nodeList = new ArrayList<>()
+nodeList에 Node 추가
+
+parent = new int[N+1]
+
+Collections.sort(nodeList)
+
+LOOP(nodeList):
+    find(start) != find(end) 이면, 
+        answer += result, union(start, end)
+
+print(answer)
+
+find(answer):
+    parent[answer] == answer 면, return answer
+    아니면, parent[answer] = find(parent[answer])
+
+union(x, y):
+    x = find(x), y = find(y)
+    x != y 이면, parent[y] = x
