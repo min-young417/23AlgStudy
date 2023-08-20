@@ -1,0 +1,30 @@
+1068번: 트리
+
+1.
+트리가 주어졌을 때, 노드 하나를 지울 것이다. 
+그 때, 남은 트리에서 리프 노드의 개수를 구하는 프로그램.
+
+2.
+삭제되는 노드의 부모노드를 모두 -2로 저장.
+부모노드가 -2가 아닌 경우만을 돌며 leaf 노드인지 아닌지 확인.
+
+3.
+parent[] = new int[] //input 저장
+
+parent[delete] = -2
+LOOP: parent[i] == delete 이면, deleteNode(i)
+
+countLeaf(root)
+
+print(count)
+
+deleteNode(d):
+    parent[d] = -2
+    LOOP: parent[i] == -2 이면, deleteNode(i)
+
+countLeaf(s):
+    visited[s] = true
+    parent[s] != -2 이면, 
+        LOOP:
+            parent[i] == s, visited[i] == false 이면, countLeaf(i)
+        루프 다 돌았을때 leaf노드가 있으면 count++

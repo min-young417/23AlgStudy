@@ -1,0 +1,37 @@
+10026번: 적록색약
+
+1.
+N×N 그리드의 각 칸에 R, G, B 중 하나를 색칠한 그림
+적록색약인 사람이 봤을 때와 
+아닌 사람이 봤을 때 구역의 수를 구하는 프로그램
+
+2.
+map에 저장 map을 통해 적록색약이 아닌 사람의 시선으로 count
+map에서 G를 전부 R로 변환하여 적록색약인 사람의 시선으로 count
+
+3.
+
+LOOP: LOOP: map[i][j] //input 저장
+
+//적록색약이 아닌 사람
+LOOP: LOOP: (i, j)에 방문하지 않았다면, dfs(i, j), n_cnt++
+
+//적록색약인 사람
+LOOP: LOOP: map[i][j] == 'G' 이면, map[i][j] = 'R'
+LOOP: LOOP: (i, j)에 방문하지 않았다면, dfs(i, j), a_cnt++
+
+print(n_cnt, a_cnt)
+
+dfs(i, j):
+    int dx[] = {-1,0,0,1}
+    int dy[] = {0,1,-1,0}
+    visits[x][y] = true
+    char tmp_char = map[x][y]
+    
+    LOOP:
+        new_x = x+dx[i]
+        new_y = y+dy[i]
+ 
+        (new_x, new_y)에 방문하지 않았고, 
+        map[new_x][new_y] == tmp_char 이면, 
+            dfs(new_x, new_y)
