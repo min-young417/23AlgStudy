@@ -1,0 +1,35 @@
+2178번: 미로탐색
+
+1.
+N×M크기의 배열로 표현되는 미로. 
+1은 이동할 수 있는 칸을 나타내고, 0은 이동할 수 없는 칸.
+(1, 1)에서 출발하여 (N, M)의 위치로 이동할 때 지나야 하는 최소의 칸 수
+
+2.
+
+
+3.
+location(int x, int y)
+
+miro = new char[N][M]
+dist = new int[N][M]
+
+dx = {1, 0, -1, 0}
+dy = {0, 1, 0, -1}
+
+Queue<location> q = new LinkedList<>()
+
+LOOP:
+    miro에 입력값을 좌표로 저장.
+    dist에 -1 저장.
+
+LOOP:
+    location l = q.poll()
+
+    LOOP:
+        nx = l.x + dx[i], ny = l.y + dy[i]
+
+        q.offer(new location(nx, ny))
+        dist[nx][ny] = dist[l.x][l.y]+1
+
+print(dist[n-1][m-1] +1)
